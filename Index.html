@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quyền Riêng Tư | Đếm Ngày Tình Yêu by Kurayami</title>
+    <style>
+        :root {
+            --primary-color: #ff4757;
+            --bg-color: #fff5f7;
+            --text-color: #2f3542;
+            --warning-color: #eb4d4b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .privacy-card {
+            background: #ffffff;
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(255, 71, 87, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Trang trí góc */
+        .privacy-card::before {
+            content: '❤';
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            font-size: 100px;
+            color: rgba(255, 71, 87, 0.05);
+            z-index: 0;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 26px;
+            margin-bottom: 5px;
+        }
+
+        .author {
+            font-size: 14px;
+            color: #747d8c;
+            letter-spacing: 1px;
+        }
+
+        .intro {
+            text-align: center;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        /* Phần cam kết 3 không */
+        .commitment-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .item {
+            background: #fffafa;
+            padding: 15px;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .item strong {
+            color: var(--primary-color);
+        }
+
+        /* Phần cảnh báo giả mạo */
+        .fake-web-alert {
+            background: #fff5f5;
+            border: 2px dashed var(--warning-color);
+            padding: 20px;
+            border-radius: 20px;
+            margin-top: 30px;
+        }
+
+        .alert-title {
+            color: var(--warning-color);
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .alert-title span {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .danger-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .danger-list li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .danger-list li::before {
+            content: '✕';
+            position: absolute;
+            left: 0;
+            color: var(--warning-color);
+            font-weight: bold;
+        }
+
+        .not-touch {
+            text-align: center;
+            color: var(--warning-color);
+            font-weight: bold;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 13px;
+            color: #a4b0be;
+        }
+    </style>
+</head>
+<body>
+
+<div class="privacy-card">
+    <div class="content">
+        <header>
+            <h1>CHÍNH SÁCH RIÊNG TƯ</h1>
+            <div class="author">Được thực hiện bởi <strong>Kurayami</strong></div>
+        </header>
+
+        <p class="intro">Chào bạn! Chúng tôi xây dựng nơi này để lưu giữ kỷ niệm, không phải để thu thập thông tin. Sự an toàn của bạn là tôn chỉ của chúng tôi.</p>
+
+        <div class="commitment-grid">
+            <div class="item">
+                <strong>Không thu thập:</strong> Chúng tôi không yêu cầu tên, email hay bất kỳ thông tin cá nhân nào.
+            </div>
+            <div class="item">
+                <strong>Không đăng nhập:</strong> Website không có tính năng đăng nhập hay yêu cầu liên lạc.
+            </div>
+            <div class="item">
+                <strong>Riêng tư tuyệt đối:</strong> Mọi dữ liệu chỉ nằm trong trình duyệt của bạn, Kurayami không lưu giữ bất kỳ điều gì.
+            </div>
+        </div>
+
+        <div class="fake-web-alert">
+            <div class="alert-title"><span>⚠️</span> CẢNH BÁO GIẢ MẠO</div>
+            <ul class="danger-list">
+                <li>Web yêu cầu đăng nhập hoặc nhập thông tin <strong>CCCD/CMND</strong>.</li>
+                <li>Web chứa nội dung <strong>18+</strong> hoặc hình ảnh không lành mạnh.</li>
+                <li>Web yêu cầu cung cấp số điện thoại hoặc tài khoản mạng xã hội.</li>
+            </ul>
+            <p class="not-touch">Đó là web giả mạo, vui lòng KHÔNG CHẠM TỚI!</p>
+        </div>
+
+        <footer>
+            &copy; 2026 Đếm Ngày Tình Yêu | Sản phẩm của Kurayami
+        </footer>
+    </div>
+</div>
+
+</body>
+  </html>
+  
