@@ -1,220 +1,150 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Chính Sách Riêng Tư | Kurayami</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đếm Ngày Tình Yêu - Kurayami</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap');
 
-  <style>
-    :root {
-      --bg: #0a0a0a;
-      --text: #e2e2e2;
-      --accent: #c00000;
-      --border: #2b2b2b;
-    }
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            font-family: 'Quicksand', sans-serif;
+            overflow: hidden;
+        }
 
-    body.light {
-      --bg: #f2f2f2;
-      --text: #111;
-      --accent: #a80000;
-      --border: #c9c9c9;
-    }
+        /* Hiệu ứng anime nhẹ nhàng phía sau */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2000&auto=format&fit=crop') center/cover;
+            opacity: 0.15;
+            z-index: -1;
+        }
 
-    body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.8;
-    }
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            max-width: 500px;
+            width: 90%;
+        }
 
-    .container {
-      max-width: 980px;
-      margin: auto;
-      padding: 32px;
-    }
+        h1 {
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #e94560;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+        }
 
-    h1, h2 {
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+        .timer {
+            display: flex;
+            justify-content: space-around;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
 
-    h1 {
-      border-left: 6px solid var(--accent);
-      padding-left: 16px;
-      margin-bottom: 32px;
-    }
+        .time-box {
+            background: rgba(15, 52, 96, 0.8);
+            padding: 15px;
+            border-radius: 12px;
+            min-width: 70px;
+            border-bottom: 3px solid #e94560;
+        }
 
-    h2 {
-      margin-top: 56px;
-      color: var(--accent);
-    }
+        .time-box span {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+        }
 
-    p {
-      margin: 16px 0;
-    }
+        .time-box label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: #aaa;
+        }
 
-    ul {
-      padding-left: 24px;
-    }
+        .disclaimer {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #ccc;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: left;
+        }
 
-    li {
-      margin: 14px 0;
-    }
+        .disclaimer b { color: #e94560; }
 
-    .block {
-      border: 1px solid var(--accent);
-      padding: 24px;
-      margin-top: 28px;
-    }
-
-    .footer {
-      margin-top: 90px;
-      border-top: 1px solid var(--border);
-      padding-top: 20px;
-      font-size: 14px;
-      opacity: 0.7;
-      text-align: center;
-    }
-
-    .toggle {
-      position: fixed;
-      top: 16px;
-      right: 16px;
-      padding: 10px 18px;
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      font-weight: 600;
-    }
-  </style>
+        footer {
+            margin-top: 25px;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+    </style>
 </head>
-
 <body>
-  <button class="toggle" onclick="toggleTheme()">SÁNG / TỐI</button>
 
-  <div class="container">
-    <h1>Chính Sách Riêng Tư</h1>
-    <p><strong>Đơn vị xây dựng:</strong> Kurayami</p>
-
-    <p>
-      Website này được xây dựng nhằm phục vụ việc hiển thị và ghi nhớ
-      các mốc thời gian mang tính cá nhân.
-      Đây không phải là một nền tảng thu thập dữ liệu,
-      không phải là dịch vụ phân tích hành vi,
-      và không vận hành dưới bất kỳ hình thức theo dõi nào.
-    </p>
-
-    <p>
-      Kurayami không yêu cầu,
-      không lưu trữ,
-      không xử lý
-      và không kiểm soát
-      bất kỳ thông tin nhận dạng cá nhân nào của người truy cập.
-      Việc bảo vệ quyền riêng tư được áp dụng mặc định,
-      không phụ thuộc vào hành vi sử dụng.
-    </p>
-
-    <h2>Phạm Vi Và Bản Chất Dữ Liệu</h2>
-    <ul>
-      <li>Website không có hệ thống tài khoản.</li>
-      <li>Không tồn tại cơ chế đăng nhập hoặc xác minh danh tính.</li>
-      <li>Không thu thập tên, email, số điện thoại hoặc dữ liệu liên hệ.</li>
-      <li>
-        Mọi dữ liệu phát sinh (nếu có)
-        chỉ tồn tại cục bộ trong trình duyệt
-        và hoàn toàn do người dùng tự quản lý.
-      </li>
-    </ul>
-
-    <p>
-      Kurayami không có quyền truy cập,
-      không có khả năng khôi phục,
-      và không chịu trách nhiệm
-      đối với bất kỳ dữ liệu nào được lưu trên thiết bị của người dùng.
-    </p>
-
-    <h2>Giới Hạn Trách Nhiệm</h2>
-    <div class="block">
-      <p>
-        Website này được cung cấp theo hiện trạng.
-        Kurayami không đưa ra bất kỳ bảo đảm nào,
-        dù là rõ ràng hay ngụ ý,
-        liên quan đến tính liên tục,
-        tính chính xác
-        hoặc mức độ an toàn của dữ liệu.
-      </p>
-
-      <p>
-        Kurayami không chịu trách nhiệm
-        đối với bất kỳ tổn thất,
-        thiệt hại
-        hoặc hậu quả nào phát sinh từ:
-      </p>
-
-      <ul>
-        <li>Việc sử dụng hoặc không thể sử dụng website.</li>
-        <li>Việc dữ liệu bị xóa, mất hoặc thay đổi.</li>
-        <li>Hành vi sao chép, chỉnh sửa hoặc mạo danh website.</li>
-        <li>Các website, dịch vụ hoặc nội dung không thuộc Kurayami.</li>
-      </ul>
-
-      <p>
-        Việc tiếp tục truy cập và sử dụng website
-        được hiểu là người dùng đã chấp nhận
-        toàn bộ các giới hạn trách nhiệm nêu trên.
-      </p>
+<div class="container">
+    <h1>KŪRAYAMI PROJECT</h1>
+    
+    <div class="timer" id="timer">
+        <div class="time-box"><span id="days">00</span><label>Ngày</label></div>
+        <div class="time-box"><span id="hours">00</span><label>Giờ</label></div>
+        <div class="time-box"><span id="minutes">00</span><label>Phút</label></div>
+        <div class="time-box"><span id="seconds">00</span><label>Giây</label></div>
     </div>
 
-    <h2>Cảnh Cáo Website Giả Mạo</h2>
-    <div class="block">
-      <p>
-        Kurayami chỉ vận hành duy nhất một website chính thức.
-        Chúng tôi không ủy quyền,
-        không liên kết
-        và không chịu trách nhiệm
-        đối với bất kỳ website nào khác.
-      </p>
-
-      <p>
-        Mọi website có một trong các hành vi sau
-        đều được xác định là không thuộc hệ thống này:
-      </p>
-
-      <ul>
-        <li>Yêu cầu đăng nhập hoặc tạo tài khoản.</li>
-        <li>Đề nghị cung cấp CCCD, CMND hoặc thông tin nhận dạng.</li>
-        <li>Thu thập số điện thoại hoặc tài khoản mạng xã hội.</li>
-        <li>Hiển thị nội dung không phù hợp với mục đích ban đầu.</li>
-      </ul>
-
-      <p>
-        Kurayami tuyên bố không chịu bất kỳ trách nhiệm nào
-        đối với rủi ro,
-        thiệt hại
-        hoặc hệ quả phát sinh
-        từ việc truy cập các website nêu trên.
-      </p>
-
-      <p>
-        Người dùng có trách nhiệm tự rời khỏi
-        khi phát hiện các dấu hiệu không phù hợp.
-      </p>
+    <div class="disclaimer">
+        <b>⚠️ Lưu ý an toàn:</b> Vui lòng không cung cấp CCCD, số điện thoại hoặc tài khoản mạng xã hội cho các liên kết bên ngoài. <br><br>
+        Kurayami không chịu trách nhiệm đối với các rủi ro phát sinh từ bên thứ ba. Hãy chủ động rời khỏi trang nếu thấy dấu hiệu bất thường.
     </div>
 
-    <div class="footer">
-      © 2026 Đếm Ngày Tình Yêu  
-      <br>
-      Một sản phẩm của Kurayami
-    </div>
-  </div>
+    <footer>
+        © 2026 Đếm Ngày Tình Yêu <br>
+        Một sản phẩm của <b>Kurayami</b>
+    </footer>
+</div>
 
-  <script>
-    function toggleTheme() {
-      document.body.classList.toggle("light");
+<script>
+    // Ngày bắt đầu: 27/01/2026
+    const startDate = new Date("2026-01-27T00:00:00").getTime();
+
+    function updateTimer() {
+        const now = new Date().getTime();
+        const diff = now - startDate;
+
+        // Tính toán ngày, giờ, phút, giây
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+        // Hiển thị ra màn hình
+        document.getElementById("days").innerText = d < 10 ? "0" + d : d;
+        document.getElementById("hours").innerText = h < 10 ? "0" + h : h;
+        document.getElementById("minutes").innerText = m < 10 ? "0" + m : m;
+        document.getElementById("seconds").innerText = s < 10 ? "0" + s : s;
     }
-  </script>
+
+    // Chạy mỗi giây
+    setInterval(updateTimer, 1000);
+    updateTimer();
+</script>
+
 </body>
 </html>
