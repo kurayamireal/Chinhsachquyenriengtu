@@ -3,145 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đếm Ngày Tình Yêu - Kurayami</title>
+    <title>Kurayami - Hành Trình Tình Yêu</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;400;600&display=swap');
+
+        :root {
+            --primary-pink: #ffafcc;
+            --soft-purple: #cdb4db;
+            --dark-deep: #1a1a1a;
+            --accent-glow: rgba(255, 175, 204, 0.4);
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
 
         body {
             margin: 0;
             padding: 0;
+            background-color: var(--dark-deep);
+            color: #f8f9fa;
+            font-family: 'Montserrat', sans-serif;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: #fff;
-            font-family: 'Quicksand', sans-serif;
-            overflow: hidden;
+            overflow-x: hidden;
+            /* Hiệu ứng gradient nền mềm mại */
+            background: radial-gradient(circle at top right, #2c1a33, #1a1a1a);
         }
 
-        /* Hiệu ứng anime nhẹ nhàng phía sau */
-        body::before {
-            content: "";
-            position: absolute;
+        /* Khung chứa chính tối ưu màn hình dọc */
+        .wrapper {
             width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2000&auto=format&fit=crop') center/cover;
-            opacity: 0.15;
-            z-index: -1;
-        }
-
-        .container {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            max-width: 500px;
-            width: 90%;
-        }
-
-        h1 {
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: #e94560;
-            margin-bottom: 30px;
-            text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
-        }
-
-        .timer {
+            max-width: 450px;
+            padding: 40px 25px;
             display: flex;
-            justify-content: space-around;
-            gap: 10px;
-            margin-bottom: 30px;
+            flex-direction: column;
+            gap: 35px;
         }
 
-        .time-box {
-            background: rgba(15, 52, 96, 0.8);
-            padding: 15px;
-            border-radius: 12px;
-            min-width: 70px;
-            border-bottom: 3px solid #e94560;
+        header {
+            text-align: center;
         }
 
-        .time-box span {
-            display: block;
-            font-size: 2rem;
-            font-weight: 700;
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            color: var(--primary-pink);
+            text-shadow: 0 0 15px var(--accent-glow);
+            margin-bottom: 5px;
         }
 
-        .time-box label {
-            font-size: 0.7rem;
+        .sub-logo {
+            font-size: 0.75rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            color: #aaa;
+            opacity: 0.8;
+            color: var(--soft-purple);
         }
 
-        .disclaimer {
-            font-size: 0.85rem;
-            line-height: 1.6;
-            color: #ccc;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 15px;
-            border-radius: 10px;
-            text-align: left;
+        /* Bộ đếm thời gian dạng dọc thanh lịch */
+        .timer-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
         }
 
-        .disclaimer b { color: #e94560; }
+        .time-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(205, 180, 219, 0.1);
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .time-item span {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-pink);
+        }
+
+        .time-item label {
+            font-size: 0.7rem;
+            color: var(--soft-purple);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Phần tâm thư chân thành */
+        .message-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 25px;
+            border-left: 3px solid var(--primary-pink);
+            line-height: 1.8;
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        .message-section h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.6rem;
+            margin-top: 0;
+            color: var(--primary-pink);
+        }
+
+        /* Điều khoản nghiêm túc */
+        .legal-box {
+            font-size: 0.8rem;
+            color: #adb5bd;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        .legal-box b {
+            color: #ff8fab;
+            display: block;
+            margin-bottom: 8px;
+        }
 
         footer {
-            margin-top: 25px;
-            font-size: 0.8rem;
-            opacity: 0.7;
+            text-align: center;
+            font-size: 0.75rem;
+            margin-top: 20px;
+            padding-bottom: 40px;
+            opacity: 0.6;
+        }
+
+        .heart {
+            color: var(--primary-pink);
+            display: inline-block;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>KŪRAYAMI PROJECT</h1>
-    
-    <div class="timer" id="timer">
-        <div class="time-box"><span id="days">00</span><label>Ngày</label></div>
-        <div class="time-box"><span id="hours">00</span><label>Giờ</label></div>
-        <div class="time-box"><span id="minutes">00</span><label>Phút</label></div>
-        <div class="time-box"><span id="seconds">00</span><label>Giây</label></div>
+<div class="wrapper">
+    <header>
+        <div class="logo">kurayami</div>
+        <div class="sub-logo">Since January 27, 2026</div>
+    </header>
+
+    <div class="timer-container">
+        <div class="time-item">
+            <span id="days">00</span>
+            <label>Ngày qua</label>
+        </div>
+        <div class="time-item">
+            <span id="hours">00</span>
+            <label>Giờ yêu</label>
+        </div>
+        <div class="time-item">
+            <span id="minutes">00</span>
+            <label>Phút nhớ</label>
+        </div>
+        <div class="time-item">
+            <span id="seconds">00</span>
+            <label>Giây mong</label>
+        </div>
     </div>
 
-    <div class="disclaimer">
-        <b>⚠️ Lưu ý an toàn:</b> Vui lòng không cung cấp CCCD, số điện thoại hoặc tài khoản mạng xã hội cho các liên kết bên ngoài. <br><br>
-        Kurayami không chịu trách nhiệm đối với các rủi ro phát sinh từ bên thứ ba. Hãy chủ động rời khỏi trang nếu thấy dấu hiệu bất thường.
+    <article class="message-section">
+        <h2>Gửi những trái tim đang yêu...</h2>
+        Chào bạn, cảm ơn bạn đã chọn đồng hành cùng <b>Đếm Ngày Tình Yêu</b>. Chúng mình hiểu rằng, mỗi giây phút trôi qua trong một mối quan hệ đều là những viên ngọc quý giá cần được nâng niu. 
+        <br><br>
+        Tại <b>kurayami</b>, chúng mình không chỉ xây dựng một công cụ, mà mong muốn tạo ra một không gian dịu dàng, nơi bạn có thể nhìn thấy tình yêu của mình lớn lên từng ngày. Sự an tâm của bạn là niềm hạnh phúc lớn nhất của chúng mình. Đội ngũ phát triển luôn nỗ lực hết mình để giữ cho không gian này thật trong lành, nhẹ nhàng và tinh tế, giống như cách bạn chăm sóc người thương của mình vậy.
+    </article>
+
+    <div class="legal-box">
+        <b>THÔNG BÁO VỀ AN TOÀN TRUY CẬP</b>
+        Vì sự an toàn của chính bạn, kurayami xin lưu ý: Tuyệt đối không cung cấp thông tin cá nhân như CCCD/CMND, số điện thoại hoặc tài khoản mạng xã hội cho bất kỳ liên kết lạ nào xuất hiện bên ngoài ứng dụng. 
+        <br><br>
+        Chúng mình cam kết bảo vệ giá trị cốt lõi của sản phẩm, nhưng kurayami từ chối chịu trách nhiệm đối với các rủi ro, thiệt hại phát sinh từ việc người dùng truy cập các website bên thứ ba. Hãy là một người dùng thông thái, chủ động rời khỏi trang nếu nhận thấy dấu hiệu bất thường để bảo vệ chính mình và tình yêu của bạn.
     </div>
 
     <footer>
-        © 2026 Đếm Ngày Tình Yêu <br>
-        Một sản phẩm của <b>Kurayami</b>
+        Thiết kế bằng tất cả sự chân thành <span class="heart">❤</span><br>
+        © 2026 Đếm Ngày Tình Yêu - Một sản phẩm của <b>kurayami</b>
     </footer>
 </div>
 
 <script>
-    // Ngày bắt đầu: 27/01/2026
     const startDate = new Date("2026-01-27T00:00:00").getTime();
 
     function updateTimer() {
         const now = new Date().getTime();
         const diff = now - startDate;
 
-        // Tính toán ngày, giờ, phút, giây
         const d = Math.floor(diff / (1000 * 60 * 60 * 24));
         const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
         const s = Math.floor((diff % (1000 * 60)) / 1000);
 
-        // Hiển thị ra màn hình
-        document.getElementById("days").innerText = d < 10 ? "0" + d : d;
+        document.getElementById("days").innerText = d;
         document.getElementById("hours").innerText = h < 10 ? "0" + h : h;
         document.getElementById("minutes").innerText = m < 10 ? "0" + m : m;
         document.getElementById("seconds").innerText = s < 10 ? "0" + s : s;
     }
 
-    // Chạy mỗi giây
     setInterval(updateTimer, 1000);
     updateTimer();
 </script>
